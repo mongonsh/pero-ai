@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 PeroAI – Prompt Evaluation and Response Orchestrator
 
-## Getting Started
+**PeroAI** is an AI governance layer that ensures safe, compliant, and traceable prompt interactions with generative AI models. Built with AWS Bedrock, Amazon Polly, and a multi-agent architecture powered by the Model Context Protocol (MCP), PeroAI is designed for enterprise-grade GenAI oversight.
 
-First, run the development server:
+---
+
+## 📌 Problem
+
+Organizations deploying GenAI face risks from:
+
+* Unsafe or toxic prompt input
+* Leaked sensitive data via AI outputs
+* Lack of control, traceability, or policy enforcement
+
+There's no standard way to *moderate*, *audit*, and *govern* AI model usage across tools like ChatGPT, Claude, or Bedrock.
+
+---
+
+## 💡 Solution
+
+**PeroAI** acts as a secure middle layer that intercepts, evaluates, and governs prompts using:
+
+* ✅ **Multi-agent Governance via MCP**
+* ✅ **Prompt moderation and rewriting**
+* ✅ **AI response generation via AWS Bedrock**
+* ✅ **Speech synthesis via Amazon Polly**
+* ✅ **Audit logging via DynamoDB**
+* ✅ **3D avatar interface with viseme lip sync**
+
+---
+
+## 🔧 Architecture
+
+* **Frontend**: Next.js + React + Three.js (3D avatar)
+* **Backend**: FastAPI
+* **AI Platform**: AWS Bedrock (Claude v2)
+* **Voice**: Amazon Polly (speech + viseme)
+* **Storage**: DynamoDB (logs)
+* **MCP Agents**:
+
+  * `PolicyAgent` → Check compliance
+  * `RewriteAgent` → Rephrase if blocked
+  * `ResponseAgent` → Generate safe response
+  * `VoiceAgent` → Convert to voice
+  * `TraceAgent` → Record everything
+
+---
+
+## 🎭 Features
+
+| Feature                 | Description                                         |
+| ----------------------- | --------------------------------------------------- |
+| ✅ Prompt Moderation     | Detects blocked content (e.g., passwords, violence) |
+| ✨ Multi-Agent Flow      | Each decision made by individual MCP-based agent    |
+| 🎙️ AI Voice Response   | Polly voice + viseme lip sync to 3D avatar          |
+| 📜 Audit Logging        | Stores every prompt + decision + response           |
+| 🛡️ Enterprise-Grade UI | Clean SaaS-style experience with auth & dashboards  |
+
+---
+
+## 🎥 Demo Video (To Be Added)
+
+> A short 2–3 minute video walking through prompt input → governance → spoken response with avatar.
+
+---
+
+## 📂 Run Locally
 
 ```bash
+# Frontend
+cd app
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Backend
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Add the following env vars:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+OPENAI_API_KEY=xxx
+AWS_ACCESS_KEY_ID=xxx
+AWS_SECRET_ACCESS_KEY=xxx
+AWS_REGION=us-east-1
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🏆 Why PeroAI Stands Out
 
-To learn more about Next.js, take a look at the following resources:
+* 🔒 **Strong alignment with governance & safety theme**
+* 🧠 **Deep use of AWS-native tech: Bedrock + Polly**
+* 🎨 **Engaging UX via 3D Avatar with lip sync**
+* 📊 **Transparent audit trails for enterprises**
+* 🧱 **MCP = Composable, flexible AI control system**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🤝 Team
 
-## Deploy on Vercel
+Built solo by \[YOUR NAME], with support from ChatGPT + AWS open source libraries.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔗 Links
+
+* GitHub Repo: [github.com/yourname/peroai](https://github.com/yourname/peroai)
+* Live Demo: [peroai.vercel.app](https://peroai.vercel.app)
+* Documentation: [docs.peroai.io](https://docs.peroai.io) *(optional)*
+
+---
+
+## 📝 License
+
+MIT

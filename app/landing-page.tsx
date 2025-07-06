@@ -1,4 +1,3 @@
-"use client"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet"
@@ -9,9 +8,9 @@ import { useRouter } from "next/navigation"
 export default function LandingPage() {
   const router = useRouter()
   return (
-    <div className="flex flex-col min-h-screen bg-[#0A0A0A] text-gray-300">
+    <div className="flex flex-col min-h-screen bg-[#0A0A0A] text-gray-300 font-sans">
       <header className="px-4 lg:px-6 h-14 flex items-center sticky top-0 z-50 backdrop-blur-sm bg-[#0A0A0A]/50">
-        <Link href="/" className="flex items-center justify-center" prefetch={false}>
+        <Link href="#" className="flex items-center justify-center" prefetch={false}>
           <MountainIcon className="h-6 w-6 text-violet-400" />
           <span className="ml-2 text-lg font-semibold text-white">PeroAI</span>
         </Link>
@@ -28,14 +27,13 @@ export default function LandingPage() {
           <Link href="#" className="text-sm font-medium hover:text-violet-300 transition-colors" prefetch={false}>
             <Github className="h-5 w-5" />
           </Link>
-          <Link href="/login" passHref>
-            <Button
-              variant="outline"
-              className="border-violet-400 text-violet-400 hover:bg-violet-400 hover:text-black transition-colors bg-transparent"
-            >
-              Try Now
-            </Button>
-          </Link>
+          <Button
+            variant="outline"
+            onClick={() => router.push("/dashboard")}
+            className="border-violet-400 text-violet-400 hover:bg-violet-400 hover:text-black transition-colors bg-transparent"
+          >
+            Try Now
+          </Button>
         </nav>
         <Sheet>
           <SheetTrigger asChild>
@@ -63,53 +61,48 @@ export default function LandingPage() {
                 <Github className="h-5 w-5" />
                 GitHub
               </Link>
-              <Link href="/login" passHref>
-                <Button
-                  variant="outline"
-                  className="w-full mt-4 border-violet-400 text-violet-400 hover:bg-violet-400 hover:text-black transition-colors bg-transparent"
-                >
-                  Try Now
-                </Button>
-              </Link>
+              <Button
+                variant="outline"
+                className="w-full mt-4 border-violet-400 text-violet-400 hover:bg-violet-400 hover:text-black transition-colors bg-transparent"
+              >
+                Try Now
+              </Button>
             </div>
           </SheetContent>
         </Sheet>
       </header>
       <main className="flex-1">
-        <section className="w-full py-20 md:py-32 lg:py-40 bg-grid-small-white/[0.05] relative flex items-center justify-center">
-          <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-[#0A0A0A] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
           <div className="container px-4 md:px-6">
-            <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
-              <div className="space-y-6">
+            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:gap-16 items-center">
+              <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-4">
-                  <p className="text-violet-400 font-medium">PeroAI</p>
-                  <h1 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl md:text-6xl">
-                    Let Your AI Speak Safely
+                  <h1 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl xl:text-6xl/none">
+                    AI Governance Starts with Context
                   </h1>
-                  <p className="max-w-[600px] text-gray-400 md:text-xl/relaxed">
-                    PeroAI moderates, rewrites, and speaks GenAI responses with full policy traceability — powered by
-                    AWS Bedrock and Amazon Polly.
+                  <p className="max-w-[600px] text-gray-400 md:text-xl">
+                    PeroAI is a multi-agent GenAI firewall that evaluates, rewrites, and vocalizes prompts using AWS
+                    Bedrock, OpenAI, and Amazon Polly — with full policy traceability.
                   </p>
                 </div>
-                <div className="flex flex-col gap-4 min-[400px]:flex-row">
+                <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Button
                     size="lg"
                     className="bg-violet-500 text-white hover:bg-violet-600 transition-colors shadow-lg shadow-violet-500/20"
                     onClick={() => router.push("/dashboard")}
                   >
-                    Try Prompt Demo
+                    Try PeroAI
                   </Button>
                   <Button
                     size="lg"
                     variant="outline"
                     className="border-gray-700 text-white hover:bg-gray-800 hover:border-gray-600 transition-colors bg-transparent"
                   >
-                    <Github className="mr-2 h-5 w-5" />
-                    View on GitHub
+                    View on Git
                   </Button>
                 </div>
               </div>
-              <div className="flex flex-col items-center justify-center">
+              <div className="w-full h-[300px] md:h-[400px] lg:h-[500px]">
                 <AvatarGraphic />
               </div>
             </div>

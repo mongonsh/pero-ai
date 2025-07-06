@@ -107,9 +107,8 @@ Built solo by \[YOUR NAME], with support from ChatGPT + AWS open source librarie
 
 ## 🔗 Links
 
-* GitHub Repo: [github.com/yourname/peroai](https://github.com/yourname/peroai)
+* GitHub Repo: [github.com/yourname/peroai](https://github.com/mongonsh/pero-ai)
 * Live Demo: [peroai.vercel.app](https://peroai.vercel.app)
-* Documentation: [docs.peroai.io](https://docs.peroai.io) *(optional)*
 
 ---
 

@@ -3,10 +3,47 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet"
 import { Menu, MountainIcon, Github } from "lucide-react"
+import AvatarWithLipSync from "@/components/AvatarWithLipSync"
+// import AvatarViewer from "@/components/avatar-viewer"
 import { AvatarGraphic } from "@/components/avatar-graphic"
 import { useRouter } from "next/navigation"
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import { useState, useEffect } from "react"
+
+interface Viseme {
+  time: number;
+  value: string;
+}
 
 export default function LandingPage() {
+  const visemeData = [
+    { time: 0, value: "A" },
+    { time: 200, value: "E" },
+    { time: 400, value: "O" },
+    { time: 600, value: "I" },
+    { time: 800, value: "sil" },
+  ];
+  const [visemes, setVisemes] = useState<Viseme[]>([]);
+  const [startTime, setStartTime] = useState(0);
+  
+  const handleStart = () => {
+    const audio = new Audio("/speech_20250706061700896.mp3");
+
+    // Start lip sync when audio starts
+    audio.onplay = () => {
+      setStartTime(Date.now());
+    };
+
+    setVisemes([
+      { time: 0, value: "A" },
+      { time: 150, value: "E" },
+      { time: 300, value: "O" },
+    ]);
+
+    audio.play(); // ✅ Will now be allowed because inside user interaction
+  };
+
   const router = useRouter()
   return (
     <div className="flex flex-col min-h-screen bg-[#0A0A0A] text-gray-300">
@@ -110,8 +147,15 @@ export default function LandingPage() {
                 </div>
               </div>
               <div className="flex flex-col items-center justify-center">
-                <AvatarGraphic />
+              {/* <AvatarViewer/> */}
+              <Canvas camera={{ position: [0, 1.5, 3], fov: 40 }}>
+              <ambientLight intensity={0.5} />
+              <directionalLight position={[2, 2, 2]} intensity={1} />
+              <AvatarWithLipSync visemes={visemes} startTime={startTime} />
+              <OrbitControls enableZoom={false} />
+            </Canvas>
               </div>
+              <button onClick={()=>{handleStart()}}>Click me</button>
             </div>
           </div>
         </section>

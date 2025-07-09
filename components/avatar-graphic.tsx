@@ -75,7 +75,7 @@ function PulsingAvatar() {
 export function AvatarGraphic() {
   return (
     <div className="relative w-full h-[350px] md:h-[450px] rounded-2xl overflow-hidden bg-black/20 border border-white/10 shadow-2xl shadow-violet-500/10">
-      <Canvas camera={{ position: [0, 0, 5.5], fov: 45 }}>
+      {/* <Canvas camera={{ position: [0, 0, 5.5], fov: 45 }}>
         <ambientLight intensity={0.2} />
         <directionalLight position={[0, 1, 1]} intensity={1} />
         <PulsingAvatar />
@@ -84,7 +84,16 @@ export function AvatarGraphic() {
         <p className="text-xs text-gray-500 bg-black/30 px-3 py-1 rounded-full border border-white/10">
           Governed, voice-enabled GenAI agent
         </p>
-      </div>
+      </div> */}
+      <iframe
+  src="https://models.readyplayer.me/686a0c118bb684540fcfbfcd.glb"
+  style={{
+    width: '100%',
+    height: '600px',
+    border: 'none',
+  }}
+  allow="camera; microphone"
+></iframe>
     </div>
   )
 }

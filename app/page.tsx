@@ -155,7 +155,7 @@ export default function LandingPage() {
               <OrbitControls enableZoom={false} />
             </Canvas>
               </div>
-              <button onClick={()=>{handleStart()}}>Click me</button>
+              
             </div>
           </div>
         </section>

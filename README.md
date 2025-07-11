@@ -101,14 +101,14 @@ AWS_REGION=us-east-1
 
 ## 🤝 Team
 
-Built solo by \[YOUR NAME], with support from ChatGPT + AWS open source libraries.
+Built solo by Mungunshagai, with support from ChatGPT + AWS open source libraries.
 
 ---
 
 ## 🔗 Links
 
-* GitHub Repo: [github.com/yourname/peroai](https://github.com/mongonsh/pero-ai)
-* Live Demo: [peroai.vercel.app](https://peroai.vercel.app)
+* GitHub Repo: [github.com/mongonsh/pero-ai](https://github.com/mongonsh/pero-ai)
+* Live Demo: [pero-ai-sandy.vercel.app](https://pero-ai-sandy.vercel.app/)
 
 ---
 
